@@ -34,7 +34,7 @@ subdir-ccflags-y :=
 # Read auto.conf if it exists, otherwise ignore
 -include include/config/auto.conf
 
-include scripts/Kbuild.include
+include $(srctree)/scripts/Kbuild.include
 
 # For backward compatibility check that these variables do not change
 save-cflags := $(CFLAGS)
@@ -51,11 +51,11 @@ ifeq ($(KBUILD_NOPEDANTIC),)
         endif
 endif
 
-include scripts/Makefile.lib
+include $(srctree)/scripts/Makefile.lib
 
 # Do not include host rules unless needed
 ifneq ($(hostprogs-y)$(hostprogs-m)$(hostlibs-y)$(hostlibs-m)$(hostcxxlibs-y)$(hostcxxlibs-m),)
-include scripts/Makefile.host
+include $(srctree)/scripts/Makefile.host
 endif
 
 ifndef obj

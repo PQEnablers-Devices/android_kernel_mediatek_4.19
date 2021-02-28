@@ -12,7 +12,7 @@ all:
 kbuild-file := $(srctree)/arch/$(SRCARCH)/include/$(src)/Kbuild
 -include $(kbuild-file)
 
-include scripts/Kbuild.include
+include $(srctree)/scripts/Kbuild.include
 
 # Create output directory if not already present
 _dummy := $(shell [ -d $(obj) ] || mkdir -p $(obj))
