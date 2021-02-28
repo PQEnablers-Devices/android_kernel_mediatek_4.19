@@ -35,6 +35,7 @@ subdir-ccflags-y :=
 -include include/config/auto.conf
 
 include $(srctree)/scripts/Kbuild.include
+include $(srctree)/scripts/Makefile.compiler
 
 # For backward compatibility check that these variables do not change
 save-cflags := $(CFLAGS)
