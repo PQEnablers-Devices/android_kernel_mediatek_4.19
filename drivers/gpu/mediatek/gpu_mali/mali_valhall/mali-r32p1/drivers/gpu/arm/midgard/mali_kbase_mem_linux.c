@@ -2419,6 +2419,23 @@ int kbase_mem_shrink(struct kbase_context *const kctx,
 
 	delta = old_pages - new_pages;
 
+#ifdef CONFIG_MALI_2MB_ALLOC
+		struct tagged_addr *start_free = reg->gpu_alloc->pages + new_pages;
+
+		/* Move the end of new committed range to a valid location.
+		 * This mirrors the adjustment done inside kbase_free_phy_pages_helper().
+		 */
+		while (delta && is_huge(*start_free) && !is_huge_head(*start_free)) {
+			start_free++;
+			new_pages++;
+			delta--;
+		}
+
+		if (!delta)
+			return 0;
+	}
+#endif
+
 	/* Update the GPU mapping */
 	err = kbase_mem_shrink_gpu_mapping(kctx, reg,
 			new_pages, old_pages);
