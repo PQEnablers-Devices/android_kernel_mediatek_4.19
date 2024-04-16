@@ -489,7 +489,7 @@ static struct sched_entity
 			if (check_min_cap && util_min >= src_capacity)
 				return se;
 
-			if (schedtune_prefer_idle(task_of(se)) &&
+			if (mtk_prefer_idle(task_of(se)) &&
 					cpu_rq(cpu)->nr_running > 1) {
 				if (!check_min_cap)
 					return se;
