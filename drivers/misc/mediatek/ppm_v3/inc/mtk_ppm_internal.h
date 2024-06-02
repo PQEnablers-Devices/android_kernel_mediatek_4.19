@@ -266,6 +266,7 @@ struct ppm_user_limit {
 	int max_freq_idx;
 	int min_core_num;
 	int max_core_num;
+	int cluster_id;
 };
 
 struct ppm_userlimit_data {
