@@ -98,12 +98,19 @@ int cpu_prefer(struct task_struct *task)
 	int cpu_prefer = task_orig_cpu_prefer(task);
 	int cs_prefer = task_cs_cpu_perfer(task);
 
-	if (cpu_prefer == SCHED_PREFER_LITTLE &&
-		uclamp_boosted(task))
-		cpu_prefer = SCHED_PREFER_NONE;
-
-	if (cs_prefer > SCHED_PREFER_NONE && cs_prefer < SCHED_PREFER_END)
+	/*
+	 * If the individual task does not have a set
+	 * cpu prefer then use the cpusets prefer instead.
+	 */
+	if (!valid_cpu_prefer(cpu_prefer))
 		cpu_prefer = cs_prefer;
+
+	/*
+	 * If the task is boosted, let the scheduler
+	 * choose the appropriate CPU for the task.
+	 */
+	if (uclamp_boosted(task))
+		cpu_prefer = SCHED_PREFER_NONE;
 
 	switch (sched_boost_type) {
 	case SCHED_ALL_BOOST:
@@ -134,13 +141,7 @@ EXPORT_SYMBOL(get_sched_boost_type);
 /*check task's boost type*/
 inline int cpu_prefer(struct task_struct *task)
 {
-	int cpu_prefer = task->cpu_prefer;
-
-	if (cpu_prefer == SCHED_PREFER_LITTLE &&
-		uclamp_boosted(task))
-		cpu_prefer = SCHED_PREFER_NONE;
-	}
-	return cpu_prefer;
+	return uclamp_boosted(task) ? SCHED_PREFER_NONE : task->cpu_prefer;
 }
 #else
 /*check task's boost type*/
