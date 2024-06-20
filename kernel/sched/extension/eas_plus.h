@@ -179,17 +179,3 @@ static inline unsigned long map_util_freq_with_margin(
 }
 #endif
 extern unsigned long capacity_spare_without(int cpu, struct task_struct *p);
-
-/*
- * schedtune/uclamp compat wrappers
- */
-static inline int mtk_prefer_idle(struct task_struct *p)
-{
-#if defined(CONFIG_SCHED_TUNE)
-	return schedtune_prefer_idle(p) > 0;
-#elif defined(CONFIG_UCLAMP_TASK_GROUP)
-	return uclamp_latency_sensitive(p);
-#else
-	return 0;
-#endif
-}
