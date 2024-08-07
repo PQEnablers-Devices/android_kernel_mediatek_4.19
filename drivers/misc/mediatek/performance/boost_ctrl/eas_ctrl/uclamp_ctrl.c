@@ -1219,7 +1219,10 @@ int uclamp_ctrl_init(struct proc_dir_entry *parent)
 	int ret = 0;
 	size_t idx;
 #if defined(CONFIG_UCLAMP_TASK_GROUP) && defined(CONFIG_SCHED_TUNE)
-	int i, j;
+	int j;
+#endif
+#if defined(MTK_K14_EAS_BOOST) || (defined(CONFIG_UCLAMP_TASK_GROUP) && defined(CONFIG_SCHED_TUNE))
+	int i;
 #endif
 	struct pentry {
 		const char *name;
