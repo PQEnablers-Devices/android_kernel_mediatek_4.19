@@ -310,7 +310,6 @@ config MACH_MT6768
 	select CPU_IDLE
 	select MTK_BASE_POWER
 	select MTK_GIC_V3_EXT
-	select MTK_PID_MAP
 	select MTK_SYSIRQ
 	select MTK_DEBUG_LATCH
 	select MTK_PLAT_SRAM_FLAG
@@ -354,7 +353,6 @@ config MACH_MT6771
 	select ARM_AMBA
 	select CPU_V7
 	select HAVE_SMP
-	select MTK_PID_MAP
 	select NEED_MACH_MEMORY_H
 	select IRQ_DOMAIN
 	select IRQ_DOMAIN_DEBUG if IRQ_DOMAIN && DEBUG_FS
@@ -529,7 +527,6 @@ config MACH_MT6785
 	select MTK_LASTBUS_INTERFACE
 	select MTK_DRAMC
 	select MTK_EMI_LEGACY
-	select MTK_PID_MAP
 	select MTK_PLAT_SRAM_FLAG
 	select MTK_DEBUG_LATCH
 	select MTK_DFD_INTERNAL_DUMP
@@ -607,7 +604,6 @@ config MACH_MT6885
 	select MTK_PLAT_SRAM_FLAG
 	select MTK_DEBUG_LATCH
 	select MTK_DFD_INTERNAL_DUMP
-	select MTK_PID_MAP
 	select MTK_SDA
 	select MTK_CACHE_PARITY_CHECK
 	select HW_RANDOM
@@ -686,7 +682,6 @@ config MACH_MT6833
 	select DEVAPC_MT6833
 	select DEVMPU_MT6833
 	select MTK_DBGTOP
-	select MTK_PID_MAP
 	select MTK_CPU_KORO
 	select MTK_SDA
 	select MTK_BUS_PARITY_CHECK
@@ -765,7 +760,6 @@ config MACH_MT6853
 	select MTK_UNIFIED_DEBUG_INTERFACE
 	select MTK_CPU_KORO
 	select MTK_DRAMC_WA
-	select MTK_PID_MAP
 	select MTK_PMQOS
 	select MTK_TINYSYS_SCP_RV_SUPPORT
 	help
@@ -790,7 +784,6 @@ config MACH_MT6873
 	select MTK_LOW_POWER_MODULE
 	select MTK_LPM_MT6873
 	select MTK_SWPM if !FPGA_EARLY_PORTING
-	select MTK_PID_MAP
 	select GENERIC_SCHED_CLOCK
 	select ARMV7_COMPAT
 	select ARMV7_COMPAT_CPUINFO
@@ -878,7 +871,6 @@ config MACH_MT6877
 	select MEDIATEK_MC if MEMORY
 	select MTK_LPM
 	select MTK_LOW_POWER_MODULE
-	select MTK_PID_MAP
 	select MTK_TIMER_SYSTIMER
 	select MTK_SPMTWAM
 	select MTK_PMSR
@@ -976,7 +968,6 @@ config MACH_MT6893
 	select MTK_PLAT_SRAM_FLAG
 	select MTK_DEBUG_LATCH
 	select MTK_DFD_INTERNAL_DUMP
-	select MTK_PID_MAP
 	select MTK_CACHE_PARITY_CHECK
 	select HW_RANDOM
 	select HW_RANDOM_MT67XX
