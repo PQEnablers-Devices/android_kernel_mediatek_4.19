@@ -117,11 +117,6 @@ SCHED_FEAT(SCHED_MTK_EAS, false)
 #endif
 
 /*
- * Request max frequency from schedutil whenever a RT task is running.
- */
-SCHED_FEAT(SUGOV_RT_MAX_FREQ, false)
-
-/*
  * Apply schedtune boost hold to tasks of all sched classes.
  * If enabled, schedtune will hold the boost applied to a CPU
  * for 50ms regardless of task activation - if the task is
