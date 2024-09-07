@@ -49,10 +49,7 @@ static int log_enable;
 #include "eas_ctrl.h"
 #include "topo_ctrl.h"
 
-#if defined(CONFIG_MTK_PLAT_MT6885_EMULATION) || defined(CONFIG_MACH_MT6893) \
-	|| defined(CONFIG_MACH_MT6833)
 #define CONFIG_CPUFREQ_HAVE_GOVERNOR_PER_POLICY
-#endif
 
 #if defined(CONFIG_CPUFREQ_HAVE_GOVERNOR_PER_POLICY)
 static int cluster_num;
